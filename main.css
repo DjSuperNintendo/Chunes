@@ -1,0 +1,117 @@
+html, body {
+  background: #111;
+  color: #bbb;
+  font-family: 'Open Sans', sans-serif;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /*height: 50px;*/
+  background: radial-gradient(#202226, #242428); 
+  /*background: #202226;*/
+}
+header > .fa {
+  color: #999;
+  padding: 8px;
+  margin-left: 10px;
+  transition: 0.25s;
+}
+header > .fa:hover {
+  color: #eee;
+  cursor: pointer;
+}
+#search {
+  /*position: absolute;
+  top: 20px;
+  right: 20px;*/
+  width: 300px;
+  margin: 15px;
+  border: none;
+  background: #303336;
+  padding: 8px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: #000;
+  transition: 0.25s;
+}
+#search:focus {
+  background: #404449;
+  outline: none;
+  color: white;
+}
+/*#search::before {
+  content: "\f002";
+}*/
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: radial-gradient(#111, #0e0e0e); 
+  background: radial-gradient(#1a1a1c, #18181a); 
+}
+footer .fa {
+  margin: 4px;
+}
+.fa-play {
+  font-size: 28px;
+  margin: 5px;
+  border-radius: 150px;
+  padding: 6px;
+  background: #222;
+  width: 32px;
+  height: 32px;
+}
+.fa-play:before {
+  margin-left: 6px;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  top: 62px;
+  bottom: 0;
+  padding-right: 40px;
+  /*width: 200px;*/
+  background: linear-gradient(to bottom right, #111, #151515);
+  background: linear-gradient(to bottom, #1a1a1c, #18181a, #111114);
+}
+nav h3 {
+  margin: 20px;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #888;
+}
+nav ul > li {
+  font-weight: 700;
+  list-style-type: none;
+  transition: 0.20s;
+}
+nav ul > li:hover {
+  color: white;
+}
+
+body > section {
+  position: fixed;
+  top: 62px;
+  left: 202px;
+  bottom: 50px;
+  right: 0;
+  overflow: auto;
+  background: linear-gradient(to bottom right, #1a1a1a, #181818);
+  background: linear-gradient(to bottom, #19191b, #171719, #111114);
+  
+}
+.highlight {
+  color: #cc33cc;
+}
+.highlight:hover {
+  color: #ff66ff;
+}
