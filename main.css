@@ -14,20 +14,17 @@ header {
 }
 header > .fa {
   color: #999;
-  padding: 8px;
-  margin-left: 10px;
+  margin: 2px;
+  padding: 4px;
+  margin-left: 17px;
   transition: 0.25s;
 }
 header > .fa:hover {
   color: #eee;
-  cursor: pointer;
 }
 #search {
-  /*position: absolute;
-  top: 20px;
-  right: 20px;*/
   width: 300px;
-  margin: 15px;
+  margin: 14px;
   border: none;
   background: #303336;
   padding: 8px;
@@ -43,9 +40,6 @@ header > .fa:hover {
   outline: none;
   color: white;
 }
-/*#search::before {
-  content: "\f002";
-}*/
 
 footer {
   position: fixed;
@@ -55,22 +49,74 @@ footer {
   height: 50px;
   background: radial-gradient(#111, #0e0e0e); 
   background: radial-gradient(#1a1a1c, #18181a); 
+  background: radial-gradient(#101114, #141415); 
 }
 footer .fa {
   margin: 4px;
 }
+footer .fa:not(.fa-play) {
+  margin: 20px;
+}
 .fa-play {
   font-size: 28px;
   margin: 5px;
-  border-radius: 150px;
+  border-radius: 50%;
   padding: 6px;
-  background: #222;
+  background: #111;
   width: 32px;
   height: 32px;
 }
 .fa-play:before {
   margin-left: 6px;
+  margin-top: 2px;
 }
+.fa.volume-up {
+  margin-left: 50px;
+}
+#elapsed, #length {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+
+input[type=range] {
+  margin: 20px;
+}
+
+
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 3px;
+    background: #000;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-top: -5px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #000;
+}
+
+
 
 nav {
   position: fixed;
@@ -80,7 +126,7 @@ nav {
   padding-right: 40px;
   /*width: 200px;*/
   background: linear-gradient(to bottom right, #111, #151515);
-  background: linear-gradient(to bottom, #1a1a1c, #18181a, #111114);
+  background: linear-gradient(to bottom, #1a1a1d, #18181b, #111115);
 }
 nav h3 {
   margin: 20px;

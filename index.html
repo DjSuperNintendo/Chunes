@@ -45,9 +45,22 @@
       
     </section>
     <footer>
-      <i class="fa fa-step-backward"></i>
-      <i class="fa fa-play"></i>
-      <i class="fa fa-step-forward"></i>
+      <span id="main-controls">
+        <i class="fa fa-step-backward"></i>
+        <i class="fa fa-play"></i>
+        <i class="fa fa-step-forward"></i>
+      </span>
+      <span id="scrubber">
+        <span id="elapsed">0:00</span>
+        <input id="track" type="range"/>
+        <span id="length">3:16</span>
+      </span>
+      <i class="fa fa-random"></i>
+      <i class="fa fa-repeat"></i>
+      <span id="volume">
+        <i class="fa fa-volume-up"></i>
+        <input id="volume" type="range"/>
+      </span>
     </footer>
   </body>
 
