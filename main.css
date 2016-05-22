@@ -54,10 +54,11 @@ footer {
 footer .fa {
   margin: 4px;
 }
-footer .fa:not(.fa-play) {
+footer .fa:not(.fa-play):not(.fa-pause) {
   margin: 20px;
 }
-.fa-play {
+.fa-play,
+.fa-pause {
   font-size: 28px;
   margin: 5px;
   border-radius: 50%;
@@ -66,7 +67,8 @@ footer .fa:not(.fa-play) {
   width: 32px;
   height: 32px;
 }
-.fa-play:before {
+.fa-play:before,
+.fa-pause:before {
   margin-left: 6px;
   margin-top: 2px;
 }
@@ -116,12 +118,25 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     background: #000;
 }
 
+#scrubber {
+  display: none;
+}
+footer {
+  text-align: center;
+}
+#main-controls {
+  float: center;
+}
+#volume {
+  float: right;
+}
+
 
 
 nav {
   position: fixed;
   left: 0;
-  top: 62px;
+  top: 0;
   bottom: 0;
   padding-right: 40px;
   /*width: 200px;*/
