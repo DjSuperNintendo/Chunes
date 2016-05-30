@@ -4,67 +4,113 @@
     <meta charset="UTF-8">
     <title>Chunes</title>
     <link href='font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='main.css' rel='stylesheet' type='text/css'>    
   </head>
   <body>
     <nav>
       <section class="search">
-        <i class="fa fa-chevron-left"></i>
-        <i class="fa fa-chevron-right"></i>
-        <input id="nav-search" type="search" placeholder="Search"/>
+        <label>
+          <i class="fa fa-search"></i>
+          <input id="nav-search" type="search" placeholder="Search"/>
+        </label>
       </section>
-      <section>
-        <h3>Discover</h3>
-        <ul>
-          <li>Browse</li>
-          <li class="highlight">Releases</li>
-          <li>Charts</li>
-          <li class="radio">Radio</li>
-        </ul>
+      <section class="global">
+        <span class="history">
+          <a class="back-button fa fa-chevron-left"></a>
+          <a class="forward-button fa fa-chevron-right"></a>
+        </span>
+        <a class="settings fa fa-gear" title="Settings"></a>
       </section>
-      <section>
-        <h3>Collection</h3>
-        <ul>
-          <li>Songs</li>
-          <li>Albums</li>
-          <li>Artists</li>
-          <li>Local Files</li>
-        </ul>
-      </section>
-      <section>
-        <h3>Playlists</h3>
-        <ul>
-          <li>Top of the pops</li>
-          <li>Super sweet</li>
-          <li>Run</li>
-        </ul>
-      </section>
+      <div id="items">
+        <div>
+          <h3>Discover</h3>
+          <ul>
+            <li><a href="#">Browse</a></li>
+            <li class="highlight"><a href="#">Releases</a></li>
+            <li><a href="#">Charts</a></li>
+            <li><a href="#" class="radio">Radio</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Collection</h3>
+          <ul>
+            <li><a href="#">Artists</a></li>
+            <li><a href="#">Albums</a></li>
+            <li><a href="#">Songs</a></li>
+            <!--<li><a href="#">Local Files</a></li>-->
+          </ul>
+        </div>
+        <div>
+          <h3>Playlists</h3>
+          <ul>
+            <li><a href="#">Top of the pops</a></li>
+            <li><a href="#">Workout</a></li>
+            <li><a href="#">Run</a></li>
+            <li><a href="#">Dance party!</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
-    <section>
-      
+    <section id="panes">
+      <div class="pane" v-if="results">
+        <h2>Search results</h2>
+        <section>
+          <h3>YouTube</h3>
+          <ul v-for="result in results.youtube">
+            <li>
+              <!--<img v-bind:src="result.imgUrl"/>-->
+              <a href="http://youtube.com{{ result.href }}">{{ result.title }}</a>
+              <span>{{ result.length }}</span>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>The Pirate Bay</h3>
+          <ul v-for="result in results.tpb">
+            <li>{{ result.name }}</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Kickass Torrents</h3>
+          <ul v-for="result in results.kat">
+            <li>{{ result.title }}</li>
+          </ul>
+        </section>
+      </div>
     </section>
     <footer>
-      <span id="scrubber">
+      <span id="playback">
         <span id="elapsed">0:00</span>
-        <input id="track" type="range"/>
         <span id="length">3:16</span>
+        <input id="scrubber" type="range" value="0" min="0" max="5000" step="1"/>
       </span>
-      <span id="main-controls">
-        <i class="fa fa-repeat"></i>
-        <i class="fa fa-step-backward"></i>
-        <i class="fa fa-pause"></i>
-        <i class="fa fa-step-forward"></i>
-        <i class="fa fa-random"></i>
-      </span>
+      <div id="track-info">
+        <img src="http://cdn.shopify.com/s/files/1/0023/2122/products/GI-208-X_1500x300_1024x1024.jpg?v=1418072282"/>
+        <ul>
+          <li><a class="title" href="#">Awaqe</a></li>
+          <li><a class="album" href="#">Awaqe (Deluxe Edition) &bull; 2014</a></li>
+          <li><a class="artist" href="#">Tycho</a></li>
+        </ul>
+      </div>
       <span id="volume">
         <i class="fa fa-volume-off"></i>
-        <input id="volume" type="range"/>
+        <input type="range" value="100"/>
         <i class="fa fa-volume-up"></i>
       </span>
+      <span id="main-controls">
+        <a id="shuffle"    class="fa fa-random"></a>
+        <a id="back"       class="fa fa-step-backward"></a>
+        <a id="play-pause" class="fa fa-play"></a>
+        <a id="forward"    class="fa fa-step-forward"></a>
+        <a id="repeat"     class="fa fa-repeat"></a>
+      </span>
+      <span class="clear" />
     </footer>
+    <audio id="audio"/>
   </body>
 
+  <!--<script src="node_modules/vue/dist/vue.min.js"></script>-->
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')

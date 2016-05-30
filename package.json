@@ -4,7 +4,8 @@
   "description": "Apply directly to your eardrums",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "build": "start tsc --watch && node-sass main.scss main.css --source-map true --watch"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,13 @@
     "electron-prebuilt": "^1.0.1"
   },
   "dependencies": {
-    "bower": "^1.7.9"
+    "bower": "^1.7.9",
+    "cheerio": "^0.20.0",
+    "kat-wrapper": "0.0.4",
+    "request": "^2.72.0",
+    "thepiratebay": "^0.2.6",
+    "vue": "^1.0.24",
+    "youtube-best-video": "0.0.8",
+    "youtube-search": "^1.0.4"
   }
 }

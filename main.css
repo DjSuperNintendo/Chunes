@@ -1,178 +1,277 @@
 html, body {
   background: #111;
-  color: #bbb;
-  font-family: 'Open Sans', sans-serif;
-}
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  /*height: 50px;*/
-  background: radial-gradient(#202226, #242428); 
-  /*background: #202226;*/
-}
-header > .fa {
-  color: #999;
-  margin: 2px;
-  padding: 4px;
-  margin-left: 17px;
-  transition: 0.25s;
-}
-header > .fa:hover {
-  color: #eee;
-}
-#search {
-  width: 300px;
-  margin: 14px;
-  border: none;
-  background: #303336;
-  padding: 8px;
-  border-radius: 2px;
-  font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  color: #000;
-  transition: 0.25s;
-}
-#search:focus {
-  background: #404449;
-  outline: none;
-  color: white;
-}
+  color: #666;
+  font-family: "Montserrat", sans-serif;
+  -webkit-user-select: none;
+  cursor: default; }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: radial-gradient(#111, #0e0e0e); 
-  background: radial-gradient(#1a1a1c, #18181a); 
-  background: radial-gradient(#101114, #141415); 
-}
-footer .fa {
-  margin: 4px;
-}
-footer .fa:not(.fa-play):not(.fa-pause) {
-  margin: 20px;
-}
-.fa-play,
-.fa-pause {
-  font-size: 28px;
-  margin: 5px;
-  border-radius: 50%;
-  padding: 6px;
-  background: #111;
-  width: 32px;
-  height: 32px;
-}
-.fa-play:before,
-.fa-pause:before {
-  margin-left: 6px;
-  margin-top: 2px;
-}
-.fa.volume-up {
-  margin-left: 50px;
-}
-#elapsed, #length {
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+  transition: 0.20s; }
+  a:hover {
+    color: white; }
 
+.clear {
+  clear: both; }
 
-
-input[type=range] {
-  margin: 20px;
-}
-
-
-input[type=range]{
-    -webkit-appearance: none;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    width: 300px;
-    height: 3px;
-    background: #000;
-    border: none;
-    border-radius: 3px;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 13px;
-    width: 13px;
-    border-radius: 50%;
-    background: #ccc;
-    margin-top: -5px;
-}
-
-input[type=range]:focus {
-    outline: none;
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #000;
-}
-
-#scrubber {
-  display: none;
-}
-footer {
-  text-align: center;
-}
-#main-controls {
-  float: center;
-}
-#volume {
-  float: right;
-}
-
-
+nav, section.pane {
+  padding: 20px; }
+  nav > *, section.pane > * {
+    margin-top: 20px; }
+    nav > *:first-child, section.pane > *:first-child {
+      margin-top: 0; }
 
 nav {
+  box-sizing: border-box;
   position: fixed;
   left: 0;
+  width: 200px;
   top: 0;
-  bottom: 0;
-  padding-right: 40px;
-  /*width: 200px;*/
-  background: linear-gradient(to bottom right, #111, #151515);
-  background: linear-gradient(to bottom, #1a1a1d, #18181b, #111115);
-}
-nav h3 {
-  margin: 20px;
-  font-size: 13px;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #888;
-}
-nav ul > li {
-  font-weight: 700;
-  list-style-type: none;
-  transition: 0.20s;
-}
-nav ul > li:hover {
-  color: white;
-}
+  bottom: 60px;
+  background: linear-gradient(to bottom, #1a1a1d, #18181b, #111115); }
+  nav .global .history > * {
+    margin: -10px;
+    padding: 10px; }
+  nav .global .history .back-button {
+    margin-left: -10px; }
+  nav .global .history .forward-button {
+    margin-left: 10px; }
+  nav .global .settings {
+    float: right;
+    color: #333; }
+    nav .global .settings:hover {
+      color: white; }
+  nav h3 {
+    margin: 20px 0;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #bbb; }
+  nav ul {
+    margin: 0;
+    padding: 0; }
+    nav ul > li {
+      margin-left: 20px;
+      font-size: 13px;
+      padding: 4px 0;
+      list-style-type: none;
+      transition: 0.20s; }
+      nav ul > li:first-child {
+        padding-top: 0; }
+      nav ul > li:last-child {
+        padding-bottom: 0; }
+      nav ul > li.highlight {
+        color: #cc33cc;
+        list-style-type: disc; }
+      nav ul > li.highlight:hover {
+        color: white; }
+  nav #items {
+    height: 100%;
+    overflow-y: auto; }
+    nav #items div:first-child h3 {
+      margin-top: 0; }
 
-body > section {
+.search {
+  position: relative;
+  width: 100%; }
+  .search label > i.fa.fa-search {
+    position: absolute;
+    margin: 8px;
+    left: 2px;
+    top: -1px;
+    font-size: 16px; }
+  .search label > input[type=search] {
+    width: 100%;
+    border: none;
+    background: #303336;
+    padding: 8px;
+    padding-left: 32px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    color: #999;
+    transition: 0.5s; }
+    .search label > input[type=search]:focus {
+      background: #404449;
+      outline: none;
+      color: white; }
+    .search label > input[type=search]::-webkit-input-placeholder {
+      color: #666; }
+    .search label > input[type=search]::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      content: '';
+      /* required for :after content to show */
+      display: block;
+      /*
+                * Setup dimensions for the custom icon.  Note that these dimensions seem to
+                * affect positioning.
+                */
+      width: 12px;
+      height: 12px;
+      /* icon size */
+      background-size: 12px;
+      /*
+                * Base64 encoded custom "X" icon
+                * Natively 30x30, but downscaled for highres screens
+                */
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);
+      /* setup all the background tweaks for our custom icon */
+      background-repeat: no-repeat;
+      /* note: this positioning will need to be tweaked for iOS */
+      background-position: top left; }
+
+#panes {
   position: fixed;
-  top: 62px;
-  left: 202px;
-  bottom: 50px;
+  top: 0px;
+  left: 200px;
+  bottom: 60px;
   right: 0;
   overflow: auto;
-  background: linear-gradient(to bottom right, #1a1a1a, #181818);
-  background: linear-gradient(to bottom, #19191b, #171719, #111114);
-  
-}
-.highlight {
-  color: #cc33cc;
-}
-.highlight:hover {
-  color: #ff66ff;
-}
+  background: linear-gradient(to top right, #111114, #19191b, #171719, #111114); }
+  #panes .pane {
+    overflow-y: auto; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  text-align: center;
+  background: radial-gradient(#101114, #141415); }
+  footer .fa {
+    margin: 4px;
+    vertical-align: middle; }
+  footer #track-info {
+    float: left;
+    height: 60px; }
+    footer #track-info > img {
+      height: 60px;
+      width: 60px; }
+    footer #track-info > ul {
+      float: right;
+      margin: 5px 8px;
+      padding: 0;
+      list-style-type: none;
+      text-align: left; }
+      footer #track-info > ul > li {
+        margin: -3px 0; }
+        footer #track-info > ul > li > a.title {
+          font-size: 13px;
+          color: #999; }
+        footer #track-info > ul > li > a.album {
+          font-size: 11px;
+          color: #555; }
+        footer #track-info > ul > li > a.artist {
+          color: #666;
+          font-size: 12px; }
+        footer #track-info > ul > li > a:hover {
+          color: white; }
+  footer #volume {
+    line-height: 60px;
+    float: right;
+    margin-right: 20px; }
+    footer #volume input[type=range] {
+      -webkit-appearance: none;
+      height: 7px;
+      background: transparent; }
+      footer #volume input[type=range]::-webkit-slider-runnable-track {
+        height: 3px;
+        background: #000;
+        border: none;
+        border-radius: 3px; }
+      footer #volume input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: none;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        background: #666;
+        margin-top: -4px;
+        transition: 0.25s; }
+        footer #volume input[type=range]::-webkit-slider-thumb:hover, footer #volume input[type=range]::-webkit-slider-thumb:active {
+          background: white; }
+      footer #volume input[type=range]:focus {
+        outline: none; }
+        footer #volume input[type=range]:focus::-webkit-slider-runnable-track {
+          background: #000; }
+  footer #main-controls {
+    line-height: 60px; }
+    footer #main-controls .fa.fa-play, footer #main-controls .fa.fa-pause {
+      font-size: 26px;
+      color: #aaa; }
+      footer #main-controls .fa.fa-play:before, footer #main-controls .fa.fa-pause:before {
+        padding: 0 2.75px; }
+    footer #main-controls .fa.fa-step-backward, footer #main-controls .fa.fa-step-forward {
+      font-size: 16px;
+      color: #777; }
+    footer #main-controls .fa.fa-random, footer #main-controls .fa.fa-repeat {
+      font-size: 12px;
+      color: #666; }
+    footer #main-controls > a.fa {
+      margin: 0;
+      padding: 10px;
+      transition: 0.25s; }
+      footer #main-controls > a.fa:hover, footer #main-controls > a.fa:active {
+        color: white;
+        border-color: white; }
+  footer #playback {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    bottom: 65px;
+    height: 10px; }
+    footer #playback:hover #scrubber, footer #playback:active #scrubber {
+      background: black;
+      height: 12px; }
+      footer #playback:hover #scrubber::-webkit-slider-runnable-track, footer #playback:active #scrubber::-webkit-slider-runnable-track {
+        height: 12px;
+        margin-top: -1px; }
+      footer #playback:hover #scrubber::-webkit-slider-thumb, footer #playback:active #scrubber::-webkit-slider-thumb {
+        height: 12px;
+        width: 1px;
+        border-radius: 0;
+        margin-top: 0;
+        background: white; }
+    footer #playback:hover #elapsed, footer #playback:hover #length, footer #playback:active #elapsed, footer #playback:active #length {
+      bottom: 69px;
+      font-size: 12px;
+      color: #999; }
+    footer #playback #elapsed, footer #playback #length {
+      position: fixed;
+      font-size: 10px;
+      color: #555;
+      bottom: 60px;
+      transition: 0.25s; }
+    footer #playback #elapsed {
+      left: 0; }
+    footer #playback #length {
+      right: 0; }
+    footer #playback #scrubber {
+      -webkit-appearance: none;
+      margin: 0;
+      height: 3px;
+      background: transparent;
+      width: 100%;
+      transition: 0.25s; }
+      footer #playback #scrubber::-webkit-slider-runnable-track {
+        height: 3px;
+        border: none;
+        transition: 0.25s; }
+      footer #playback #scrubber::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: none;
+        height: 3px;
+        width: 0;
+        transition: 0.25s; }
+      footer #playback #scrubber:focus {
+        outline: none; }
+
+audio {
+  display: none; }
+
+/*# sourceMappingURL=main.css.map */
